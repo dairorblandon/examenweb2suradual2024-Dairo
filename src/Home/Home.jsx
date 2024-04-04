@@ -1,7 +1,10 @@
 import "./Home.css"
 
+import basedatos from "../utils/basedatos.json"
+
 export function Home(){
 
+     
     //logica para leer la base de datos
 
 
@@ -32,8 +35,22 @@ export function Home(){
 
        
         <section className="container">
-            <section className="row-cols-1 row-cols-md-5 g-3">
+            <section className="row row-cols-1 row-cols-md-5 g-3">
                 {
+                    basedatos.map(function(barberia){
+                        return(
+                            <div className="col">
+                                <div className="carsd h-100 shadow px-2">
+                                    <h3>{barberia.nombre}</h3>
+                                    <h4>Especialidad: s{barberia.especialidad}</h4>
+                                    <h4>Experiencia: {barberia.experiencia}</h4>
+                                    <h4>Correo: {barberia.correo}</h4>
+                                    <h4>Contacto: {barberia.contacto}</h4>
+
+                                </div>
+                            </div>
+                        )
+                    })
                     //logica para recorrer la BD y mostrar la informacion de los 10 barberos
                 }
             </section>
